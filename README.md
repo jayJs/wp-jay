@@ -11,13 +11,13 @@ This here is an idea to demonstrate the possibilities of keeping Wordpress as ba
 Install as a normal Wordpress Theme:  
 1. Copy "wp-jay" to "wp-content/themes/"  
 2. Activate from "Appearance" menu in backend.  
+PS. Do not change the name of "wp-jay" folder.  
 
 Install [WP-API plugin](https://wordpress.org/plugins/json-rest-api/)  
 1. Copy "json-rest-api" to "wp-content/plugins/"  
 2. Activate from "Plugins" menu in backend.
 
-NB - the theme name "wp-jay" is hardcoded currently. Sorry for that.  
-NB2 - In order to use "#" as a normal SPA would, functions.php sets permalinks to '/#/%postname%/'. This is so far the easiest solution for automatically forward all "watch post" links in backend to the correct URL.  
+PERMALINKS - In order to use "#" as a normal SPA would, functions.php sets permalinks to '/#/%postname%/'. This is so far the easiest solution for automatically forward all "watch post" links in backend to the correct URL.  
 This overwrites all Permalink settings from backend.  
 
 ##Instant:  
