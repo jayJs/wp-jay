@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello</title>
+    <link rel="stylesheet" href="wp-content/themes/wp-jay/b/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="wp-content/themes/wp-jay/b/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="wp-content/themes/wp-jay/b/animate.css/animate.min.css">
+    <link rel="stylesheet" href="wp-content/themes/wp-jay/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script>
+      // if fBAppId is set, Jay will automatically add FB SDK
+      //var fbAppId = "" // if fbAppId is undefined, FB SDK is not added
+    </script>
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <a href="https://github.com/jayJs/wp-jay"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+    <div id="loading">
+      Loading...
+    </div>
+
+    <div id="app" class="hidden container">
+
+      <div id="home" class="pull-left">
+        <h1 style="margin-top: 0;"><a id="blogName" href="#/" style="color: #000;"></a></h1>
+        <p id="blogDescription"></p>
+      </div>
+
+      <div class="dropdown pull-right">
+        <a id="add" href="#" type="button" class="btn btn-default pull-right" data-toggle="dropdown"  aria-hidden="true"><span  class="glyphicon glyphicon-plus"></span>&nbsp;New</a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="wp-admin/post-new.php">Post</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="wp-admin/post-new.php?post_type=page">Page</a></li>
+        </ul>
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div id="e404" class="hidden">
+        <h1>Error 404</h1>
+        This page was not found
+      </div>
+
+      <div id="listPosts" class="hidden">
+      </div>
+
+      <div id="onePost" class="hidden">
+      </div>
+    </div>
+
+    <script src="wp-content/themes/wp-jay/b/jquery/dist/jquery.min.js"></script>
+    <script src="wp-content/themes/wp-jay/b/js-signals/dist/signals.min.js"></script>
+    <script src="wp-content/themes/wp-jay/b/hasher/dist/js/hasher.min.js"></script>
+    <script src="wp-content/themes/wp-jay/b/crossroads/dist/crossroads.min.js"></script>
+    <script src="wp-content/themes/wp-jay/b/html5shiv/dist/html5shiv.js"></script>
+    <script src="wp-content/themes/wp-jay/b/respond/dest/respond.min.js"></script>
+    <script src="wp-content/themes/wp-jay/b/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="wp-content/themes/wp-jay/b/momentjs/min/moment.min.js"></script>
+    <script src="wp-content/themes/wp-jay/b/jay/jay.js"></script>
+    <script src="wp-content/themes/wp-jay/b/jay/dist/jay-wp.js"></script>
+    <script src="wp-content/themes/wp-jay/js/script.js"></script>
+  </body>
+</html>

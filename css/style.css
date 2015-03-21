@@ -1,0 +1,35 @@
+
+p {
+  margin-bottom: 10px;
+}
+
+#loading {
+  width: 100%;
+  text-align: center;
+  margin-top: 150px;
+}
+
+#app {
+  margin-top: 50px;
+  max-width: 600px;
+  width: 100%;
+  text-align: left;
+}
+
+#listPosts {
+  margin-top: 30px;
+}
+
+#onePost {
+  margin-top: 50px;
+}
+
+#alert {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+}
+
+#alert>button {
+  margin-top: 15px; margin-right: 15px;
+}
