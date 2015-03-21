@@ -1,7 +1,7 @@
 {
   "name": "Jay",
   "description": "jQuery MVC framework for rapid building of Single Page Applications. Instant Crossroads JS routing, FB authentication & Animate.CSS",
-  "version": "0.4.16",
+  "version": "0.4.17",
   "main": "jay.js",
   "keywords": "jQuery, MVC, SPA, Crossroads, Animate, Facebook",
   "homepage": "https://github.com/jayJs/jay",
