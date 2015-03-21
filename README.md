@@ -1,13 +1,12 @@
 ## WP-Jay  
 
-A Wordpress theme boilerplate for a Single Page Application (SPA).  
+A Wordpress theme boilerplate for a Single Page Application.  
 
-All user input relies on backend.  
-Can currently only retrieve information.  
+Whereas Wordpress technology stack is challenged by the modern winds, the backend administration is still something a quarter of the world relies for their administration needs.
 
-This is meant as an idea to demonstrate the possibilities of using Wordpress as a backend.  
+This here is an idea to demonstrate the possibilities of keeping Wordpress as backend, while making use of all the cool new frontend technologies.  
 
-##Install  
+##Installation  
 
 Install as a normal Wordpress Theme:  
 1. Copy "wp-jay" to "wp-content/themes/"  
