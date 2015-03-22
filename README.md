@@ -9,9 +9,9 @@ This here is an idea to demonstrate the possibilities of keeping Wordpress as ba
 ##Installation  
 
 Install as a normal Wordpress Theme:  
+1. If theme folder name is not "wp-jay" (for example "wp-jay-master"), then change it to "wp-jay".  
 1. Copy "wp-jay" to "wp-content/themes/"  
 2. Activate from "Appearance" menu in backend.  
-PS. Do not change the name of "wp-jay" folder.  
 
 Install [WP-API plugin](https://wordpress.org/plugins/json-rest-api/)  
 1. Copy "json-rest-api" to "wp-content/plugins/"  
