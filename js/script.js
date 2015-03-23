@@ -20,8 +20,7 @@ $(document).ready(function() {
     $('html,body').scrollTop(0)
   }
 
-  // VIEWS
-  // Front page view
+  // VIEWS - Front page view
   var listPostsView = function () {
     clearApp();
     listPosts.in('fadeIn');
@@ -35,8 +34,7 @@ $(document).ready(function() {
     onePostFunction(id);
   }
 
-  // MODEL
-  // Set up routes
+  // MODEL - Set up routes
   crossroads.addRoute('/', listPostsView);
   crossroads.addRoute('/{id}', onePostView);
 
@@ -49,8 +47,7 @@ $(document).ready(function() {
   // start routing
   route(crossroads);
 
-  // CONTROLLERS
-  // Controller, "/"
+  // CONTROLLERS, "/"
   function listPostsFunction() {
     get_posts().then(function(data){
       var d = data
@@ -76,5 +73,4 @@ $(document).ready(function() {
       }
     })
   }
-
 });

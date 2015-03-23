@@ -40,7 +40,7 @@ If you are wondering where do variables like blogName, blogDescription, onePost,
 onePost.out('fadeOut');
 
 ```  
-is about the same as:
+is exactly the same as:
 
 ```  
 $("#onePost").addClass("animated fadeOut").addClass("hidden");
