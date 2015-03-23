@@ -20,6 +20,10 @@ Install [WP-API plugin](https://wordpress.org/plugins/json-rest-api/)
 PERMALINKS - In order to use "#" as a normal SPA would, functions.php sets permalinks to '/#/%postname%/'. This is so far the easiest solution for automatically forward all "watch post" links in backend to the correct URL.  
 This overwrites all Permalink settings from backend.  
 
+##Sample site:
+There's a demo of the theme in action here:  
+[http://wp-jay-demo.herokuapp.com/#/](http://wp-jay-demo.herokuapp.com/#/)  
+  
 ##Instant:  
 jQuery  
 Bootrap  
