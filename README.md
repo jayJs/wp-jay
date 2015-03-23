@@ -29,7 +29,25 @@ MomentJS - date manipulations
 FB SDK - Facebook integration  
 Bower - package management  
 [Jay - jQuery MVC library](https://github.com/jayJs/jay)  
-Jay-WP  
+Jay-WP - Wordpress specific Jay commands
+
+##Where's the code?
+The whole JS code for the theme is [in "js/script.js" file](https://github.com/jayJs/wp-jay/blob/master/js/script.js).
+You are right to be mesmerized by the fact the whole "Show all posts, show one post, show a 404 error" logic takes only 80 lines of code and comments. That's the magic of [Jay, which is sort of like a shorthand for jQuery](https://github.com/jayJs/jay).  
+
+If you are wondering where do variables like blogName, blogDescription, onePost, listPosts and e404 then they represent their jQuery counterparts so
+```  
+onePost.out('fadeOut');
+
+```  
+is about the same as:
+
+```  
+$("#onePost").addClass("animated fadeOut").addClass("hidden");
+
+```  
+It's just shorter to write. Read the [whole Jay documentation here](https://github.com/jayJs/jay).  
+
 
 ##Jay-WP  
 Wordpress specific Jay commands  
