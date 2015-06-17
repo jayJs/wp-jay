@@ -1,10 +1,10 @@
 {
   "name": "J",
   "description": "jQuery MVC framework for rapid building of Single Page Applications. Instant Crossroads JS routing, FB authentication & Animate.CSS",
-  "version": "0.4",
+  "version": "1.0",
   "main": "jay.js",
   "keywords": "jQuery, MVC, SPA, Crossroads, Animate",
-  "homepage": "https://github.com/martinsookael/j",
+  "homepage": "https://github.com/jayJs/",
   "authors": [
     "Martin Sookael <m@multiverse.im>"
   ],
@@ -26,8 +26,7 @@
     "crossroads": "~0.12.0",
     "hasher": "~1.2.0",
     "signals": "~1.0.0",
-    "jay": "0.4.17",
-    "bootstrap-datepicker": "~1.3.1"
+    "jay": "1.0.0-beta.1"
   },
   "devDependencies": {}
 }
