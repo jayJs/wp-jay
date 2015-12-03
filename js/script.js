@@ -5,6 +5,8 @@ $(document).ready(function () {
 
   "use strict";
 
+  J.host = "http://www.merilinmandel.com";
+
   // hide loadin + show app
   $("#loading").addClass("animated fadeOut").addClass("hidden");
   $("#app").removeClass("hidden").addClass("animated fadeIn");

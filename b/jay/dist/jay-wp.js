@@ -1,8 +1,11 @@
 "use strict";
 
 function get_posts() {
+  var url = "wp-json/posts";
+  if (J.host) { url = J.host + url; }
+
   return $.ajax({
-    url: "wp-json/posts",
+    url: url,
     success: function(data){
       return data;
     },
@@ -15,8 +18,11 @@ function get_posts() {
 }
 
 function get_post(id) {
+  var url = "wp-json/posts?filter[name]="+id;
+  if (J.host) { url = J.host + url; }
+
   return $.ajax({
-    url: "wp-json/posts?filter[name]="+id,
+    url: url,
     success: function(data){
       return data;
     },
@@ -29,8 +35,11 @@ function get_post(id) {
 }
 
 function bloginfo() {
+  var url = "wp-json/";
+  if (J.host) { url = J.host + url; }
+
   return $.ajax({
-    url: "wp-json/",
+    url: url,
     success: function(data){
       return data;
     },

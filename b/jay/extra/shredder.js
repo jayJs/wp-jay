@@ -109,7 +109,7 @@ var hasher = (function(window){
         var host = window.location.protocol + "//" + window.location.host
         var href = window.location.href
 
-        if(href.charAt(host.length+1) === "#") {
+        if(href.indexOf("#") !== -1) {
           var result = _hashValRegexp.exec(hasher.getURL());
         } else  {
           var clean = href.replace(host, '')

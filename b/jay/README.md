@@ -5,7 +5,42 @@
 * fast development time  
 * good code maintainability  
 
-The focus is to provide superfast prototyping possibilities for building Minimum Viable Products.  
+The focus is to provide super fast prototyping possibilities for Single Page Applications.  
+
+This includes routing, authentication, form handling, WYSIWG editor, basic CRUD capability, and some little helpers that come handy for front end javascript. There is also a proposal for structuring your code to resemble MVC logic.  
+
+##Overview  
+**CRUD:**  
+J.get()     // AJAX get  
+J.post()    // AJAX post  
+J.put()     // AJAX put  
+J.delete()     // AJAX delete  
+J.query()   // query by key and value  
+J.save()    // save all data from a form  
+J.update()  // update all data from a form.  
+
+**FB SDK & Auth:**  
+J.addFB()   // add FB SDK  
+J.logInFB = true   // weather user should be authented against FB  
+J.isUser()  // as asynchronously, weather the user is logged in.
+
+**Form handling:**  
+J.getBlobURL()        // get image data from file input (used for previews)  
+J.detectFileUpload()  // detect, if the browser can upload files  
+J.resetForm()         // reset the form  
+J.rebuildForm()       // rebuild form contents from data (used when editing data)  
+J.prepareForm()       // get data from Form and create Form Data.  
+.wysiwg               // if an element has .wysiwg as a class, it will become a WYSIWG editor.  
+
+**Routing:**  
+J.route     // start routing
+J.html5     // removes hashtags from URL  
+
+**Little helpers:**  
+cl(),       // console.log()  
+ce(),       // console.error()  
+a(),        // creates a custom alert  
+show(), hide() // show and hide using bootstrap class hidden and animate.css animations.  
 
 ##Installation  
 ```
@@ -34,33 +69,9 @@ or download [jQuery](http://jquery.com/download/), [Bootstrap](http://getbootstr
 <script src="/bower_components/trumbowyg/dist/trumbowyg.min.js"></script>
 <script src="/bower_components/jay/dist/jay.js"></script>
 ```
-If you plan to use Facebook SDK, put this into html head like this
-```
-<script>
-  var fbAppId = "756437764450452"
-</script>
-```
 
 ##jQuery  
 Jay is a shorthand for jQuery. You can safely use all of jQuery in Jay.  
-
-##Selectors  
-Jay encourages you to use $(foo) instead of $("#foo").  
-It's 3 letters less and jQuery supports this out of the box.  
-
-##show() & hide()  
-Overwrites jQuery show() and hide() with a little bit less jumpy solution for this.  
-Now they also take an optional argument for a [animate.css](http://daneden.github.io/animate.css/) animation.  
-```
-$(hello).show();
-$(hello).show("bounce")   // comes in with animate.css animation called "bounce"
-```
-It's basically just a shorthand for adding / removing class "hidden" and optionally adding an animation.  
-```
-// both do the same thing:
-$("#loading").addClass("animated fadeOut").addClass("hidden");
-$(loading).out('fadeOut');
-```
 
 ##Model: Routing  
 To fetch data from URL we use routing from Crossroads JS.  
@@ -74,23 +85,19 @@ crossroads.addRoute('/admin', adminPageView);
 J.route(crossroads);
 ```
 
+We suggest to separate the code into two parts - put the code which shows and hides elements ("views") before routing and the part which manipulates data ("controllers") after routing.  
+
 ##Views  
-The View includes information about what to turn on or off on the page and calls a Controller function.  
-Views have to be declared before Models.  
 ```
-var frontPageView = function () {
-  $(otherPageView).hide();
-  $(adminPageView).hide();
-  $(frontPage).show();
+function frontPageView() {
+  $("#otherPageView").hide();
+  $("#adminPageView").hide();
+  $("#frontPage").show();
   frontPageFunction();
 }
 ```
-One thing that might struck odd, is that you have to hide old things before you can show new things.  
-The upside of this is that contemporary apps do not always rely on menus, it's rather a random thing turning other random things on and off.
 
-**Controllers**  
-A controller function is the best place to keep all the logic functions (like "Get latest posts from database") for this route.   This way you can keep your functions available to the relevant scope and all your logic in one place.  
-
+##Controllers  
 ```
 function frontPageFunction() {
   $.ajax({
@@ -111,25 +118,16 @@ function frontPageFunction() {
 ##Authentication
 **Facebook SDK**
 
-If fbAppId is set before Jay is loaded, the whole Facebook SDK is added to the site.
+```
+J.logInFB = true; // authenticate user against FB
+J.addFB(756437764450452); // your FB APP id
+```
+
+Loads the Facebook SDK to the site.
 
 If you want to use it for authentication, [jay-npm](https://github.com/jayJs/jay-npm) is currently required.
 
-You can add fbAppId like this to HTML:  
-```
-<script>
-  // test account for jay, works on localhost:5000
-  var fbAppId = "756437764450452" // if fbAppId is undefined, FB SDK is not added
-</script>
-```
-Jay loads the whole Facebook SDK for you.
 Users who have authorized the Facebook app receive a client ID (available as J.userId) and a token (available as J.token) that enables them to send data to the server.  
-
-**NB!**
-Starting version 1.0 you just use this in your JS:
-```
-J.addFB(756437764450452);
-```
 
 
 **J.isUser()**  
@@ -181,8 +179,12 @@ Sometimes it's not FB, it's Parse.com.
 ##Little helpers  
 
 ##.wysiwg  
-If you add class .wysiwg to a textarea, then it will automatically turned into a WYSIWG editor.  
-Such editor is aknologed by prepareForm() and rebuildForm().  
+```
+J.wysiwg = true
+```
+If you set J.wysiwg to true (and have trumbowyg added), then
+you can add class .wysiwg to a textarea, to automatically turn it into a WYSIWG editor.  
+Such editor is aknowledged by prepareForm() and rebuildForm().  
 
 ##cl(message)  
 A shortcut for console.log(message);  
@@ -241,21 +243,30 @@ $(imagePreview).css("background-image", "")
 
 ##Use without /#/ in URL  
 **beta**  
-Since v0.7 Jay supports URL-s without /#/.
-In order to use it set J.html5 to true in the beginning of your HTML.  
 ```
-//HTML:
-var J = {}
-J.html5 = true;
-```
-This makes it basically work.  
-Other things to keep in mind.
-1. Hasher might not always read URL-s without hashtags present. For that please find Shredder in the extra folder of Jay. It's basically Hasher but with a little hack to also support URL-s without hashtags.  
-2. Make sure your server is not just serving the html to ("/"), but rather to ('*').  
+HTML:  
+<script src="http://uudised.ngo.ee/wp-content/themes/mty24/b/jay/extra/shredder.js"></script>  
 
-Starting version 1.0 you would do this in your script:  
+JS:  
+J.html5(true);  
 ```
-J.html5 = true;
+Keep in mind.
+1. Shredder is basically Hasher but with a little hack to also support URL-s without hashtags.  
+2. Make sure your server is not just serving the html to ("/"), but rather to ("*").  **
+3. The back button requires currently two clicks.  
+
+##show() & hide()  
+Overwrites jQuery show() and hide() with a little bit less jumpy solution for this.  
+Now they also take an optional argument for a [animate.css](http://daneden.github.io/animate.css/) animation.  
+```
+$("#hello").show();
+$("#hello").show("bounce")   // comes in with animate.css animation called "bounce"
+```
+It's basically just a shorthand for adding / removing class "hidden" and optionally adding an animation.  
+```
+// both do the same thing:
+$("#loading").addClass("animated fadeOut").addClass("hidden");
+$("#loading").out('fadeOut');
 ```
 
 ##CRUD  
@@ -267,6 +278,7 @@ Calls ($.ajax JSONP) are made to address "/api/j".
 **J.post(table, data)** -  add a row to database.  
 **J.get(table, limit, objectId)** - get a row from database. If limit is 1, add objectId, else <limit> last posts are queried.  
 **J.put(table, objectId, data)** - update a row in database.
+**J.delete(table, objectId)** - delete a row in database.
 **J.query(table, limit, key, value, order)** - Query for data.  
 
 **J.save(table, formId)** - Save data data from form to database.  
@@ -345,6 +357,20 @@ var update = {
 }
 J.put("Posts", "378QWha5OB", update).then(function(data) {
   cl(data.updatedAt);  
+});
+```
+
+
+##J.delete(table, objectId)  
+**Delete a row in database via a $.ajax JSONP call.**  
+table - name of the table in database (*string*).  
+objectId - Id of object in database (*string*).  
+
+Returns id of object deleted.
+
+```
+J.delete("Posts", "378QWha5OB").then(function(data) {
+  cl(data.objectId);  
 });
 ```
 
